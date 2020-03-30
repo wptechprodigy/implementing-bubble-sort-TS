@@ -1,0 +1,17 @@
+{
+  "name": "algo_ts",
+  "version": "1.0.0",
+  "description": "Algorithm in TS",
+  "main": "index.js",
+  "author": "Waheed Afolabi <waheed.remote247@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently yarn:start:*"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2"
+  }
+}
