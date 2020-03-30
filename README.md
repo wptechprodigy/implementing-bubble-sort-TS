@@ -151,3 +151,72 @@ To achieve this, there has to be a way to borrow the `sort()` method of the  `So
 This concept is referred to as an **abstract** class, which does not need to be instantiated before use. It only needs to be injected in the place of need.
 
 This is what we are going to be implementing now.
+
+Our `Sorter` class now becomes:
+
+```ts
+export abstract class Sorter {
+ abstract length: number;
+ abstract compare(firstIndex: number, nextIndex: number): boolean;
+ abstract swap(firstIndex: number, nextIndex: number): void;
+
+ sort(): void {
+  const { length } = this;
+
+  for (let i = 0; i < length; i++) {
+   for (let j = 0; j < length - i - 1; j++) {
+    if (this.compare(j, j + 1)) {
+     this.swap(j, j + 1);
+    }
+   }
+  }
+ }
+}
+
+```
+
+and it becomes easy for our collections to just extend `Sorter`.
+I also have to point out that we do not need the interface any longer, in this case...since we are building up definitons between objects rather than _intending the objects to work together which is one of the primary reasons for an interface._
+
+After this implementation, our `index.ts` now looks:
+
+```ts
+
+import { NumbersCollection } from './NumbersCollection';
+import { CharacterCollection } from './CharacterCollection';
+import { LinkedList } from './LinkedList';
+
+const numberCollection = new NumbersCollection([10, 3, -5, 0, 1]);
+const characterCollection = new CharacterCollection('JoPaB');
+
+const linkedList = new LinkedList();
+linkedList.add(50);
+linkedList.add(-20);
+linkedList.add(-5);
+linkedList.add(51);
+linkedList.add(5);
+linkedList.add(1);
+
+numberCollection.sort();
+console.log('+++++++++++++++++++++ \n', numberCollection.data);
+console.log('+++++++++++++++++++++')
+
+characterCollection.sort();
+console.log(characterCollection.data);
+
+console.log('+++++++++++++++++++++')
+linkedList.sort();
+linkedList.print();
+
+
+```
+
+beautiful.
+
+And our output is as such, run `yarn start`:
+
+![Result screenshot](https://res.cloudinary.com/waheedafolabi/image/upload/v1585592262/My%20Ps/bubble_sort_implementation.png)
+
+## Credits
+
+This is a great journey with [Stephen Grider](https://github.com/StephenGrider) a great teacher. You can tweet at him [here](https://twitter.com/ste_grider?lang=en). This is my understanding of this part of the training on Typescript.
