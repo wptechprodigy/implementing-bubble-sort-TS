@@ -6,7 +6,8 @@ This is a sorting algorithm that works for different types of data structures
 
 We intend to, first, implement a class sorter to sort an array of numbers using Bubble sort...hear me out!
 
-It's not the best sorting algorithm out there but it suits our case. We intend to eventually make it to suit other cases like sorting a string like `JoPaB` to get `aBJoP` and a LinkedList.
+It's not the best sorting algorithm out there but it suits our case. 
+We intend to eventually make it to suit other cases like sorting a string like `JoPaB` to get `aBJoP` and a LinkedList.
 
 But for now we implement the simplest scenario.
 
@@ -25,7 +26,11 @@ we should get:
 
 The `BubbleMethodForNumbers.ts` file holds the implementation for soring an array of numbers. Great!
 
-This won't however work for a string. Yes. Yes. I know...but string behaves like an array in Javascript. But you cannot replace an element at some index in a string as it can be done for elements in an array.
+This won't however work for a string. 
+
+Yes. 
+
+Yes. I know...but string behaves like an array in Javascript. But you cannot replace an element at some index in a string as it can be done for elements in an array.
 
 This makes the solution in the above named file to be solely for that use case.
 
@@ -52,7 +57,7 @@ if (this.collection instanceof Array) {
   }
 }
 
-// Then type guard for a sting as well
+// Then type guard for a string as well
 if (typeof this.collection === 'string') {
   // The we make a logic for strings here
 }
