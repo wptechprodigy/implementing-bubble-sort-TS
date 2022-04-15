@@ -65,9 +65,10 @@ if (typeof this.collection === 'string') {
 
 ```
 
-This helps make all array methods available wuthin the block and as such we could still make use of the logic in there. Then we'll need to make another one for strings and then a LinkedList.
+This helps make all array methods available within the block and as such we could still make use of the logic in there. 
+Then we'll need to make another one for strings and then a LinkedList.
 
-This is a bad approach.
+This is a bad approach. Come along let's see a better approach...
 
 ## A Better Approach
 
